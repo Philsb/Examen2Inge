@@ -4,11 +4,22 @@
 <head>
     <script>
         function mostrarFormularioPizza() {
-
+            document.getElementById("modal").style = "display: block;";
 
         }
 
+        function quitarFormularioPizza() {
+            var modal = document.getElementById("modal");
+            modal.style = "display: none;";
+            while (numeroNotasGenerales > 0) {
+                quitarNota();
+            }
+            document.getElementById("form").reset()
+        }
+
     </script>
+
+
 </head>
 
 <div class="pizza-banner shadow">
@@ -50,9 +61,138 @@
         </div>
     </div>
 </div>
-<div id="modal">
+<div id="modal" class="row modal" >
+    <div class="box-container">
+        <div class="contenedor-blanco formulario-pizza-body ">
+            <div class="nav-bar-pizza">
+                <div class="row">
+                    <div class="col-md-3">asd</div>
+                    <div class="col-md-3">asd</div>
+                    <div class="col-md-3">asd</div>
+                    <div class="col-md-3">asd</div>
+                </div>
+            </div>
+            <div class="row" style="margin-left: 10%; margin-right: 10%; padding: 25px; text-align:center;">
+                <div class="col-md-3">asd</div>
+                <div class="col-md-3">asd</div>
+                <div class="col-md-3">asd</div>
+                <div class="col-md-3">asd</div>
 
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h2 style="text-align:center;">Titulo</h2>
+                    <img src="~/Content/Imagenes pizza/toppings/en/2x/W.png" alt="Pizza base" style="width:280px;height:280px;">
+                </div>
+                <div id="toppings" class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-1" value="2" />
+                            <label class="label_item" for="choose-top-1">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/H.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-2" value="2" />
+                            <label class="label_item" for="choose-top-2">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/PN.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-3" value="2" />
+                            <label class="label_item" for="choose-top-3">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/BS.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-4" value="2" />
+                            <label class="label_item" for="choose-top-4">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/GB.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-5" value="2" />
+                            <label class="label_item" for="choose-top-5">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/SA.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-6" value="2" />
+                            <label class="label_item" for="choose-top-6">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/CH.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-7" value="2" />
+                            <label class="label_item" for="choose-top-7">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/ZO.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-8" value="2" />
+                            <label class="label_item" for="choose-top-8">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/K.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-9" value="2" />
+                            <label class="label_item" for="choose-top-9">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/FM.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-10" value="2" />
+                            <label class="label_item" for="choose-top-10">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/BO.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-11" value="2" />
+                            <label class="label_item" for="choose-top-11">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/PI.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-12" value="2" />
+                            <label class="label_item" for="choose-top-12">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/O.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-13" value="2" />
+                            <label class="label_item" for="choose-top-13">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/HP.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-14" value="2" />
+                            <label class="label_item" for="choose-top-14">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/S.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-15" value="2" />
+                            <label class="label_item" for="choose-top-15">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/JP.png"    style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="checkbox" class="select_item" name="choice" id="choose-top-16" value="2" />
+                            <label class="label_item" for="choose-top-16">
+                                <img src="~/Content/Imagenes pizza/toppings/en/2x/LN.png" style="width:150px;height:150px;" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
-
 

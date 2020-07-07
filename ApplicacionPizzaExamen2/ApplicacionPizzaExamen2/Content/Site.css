@@ -80,3 +80,62 @@ textarea {
     background-color: white;
     color: #537b3d;
 }
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0%;
+    top: 0%;
+    width: 104%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.box-container {
+    margin: 6% auto; /* 15% from the top and centered */
+    width: 1200px; /* Could be more or less, depending on screen size */
+}
+
+.box-container-generic { /* Could be more or less, depending on screen size */
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.contenedor-blanco {
+    padding: 25px;
+    border-radius: 25px;
+    background-color: white;
+}
+.nav-bar-pizza {
+    padding: 25px;
+    border-radius: 25px;
+    background-color: #eaf0f3;
+    border: solid 2px white;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: -4%;
+    text-align: center;
+}
+
+.formulario-pizza-body {
+    background-image: url('imagenes pizza/bg-configurator-header.jpg');
+}
+
+.select_item {
+    display: none !important;
+}
+
+.label_item {
+    opacity: 1;
+}
+
+.select_item:checked + label {
+    border: solid 2px orange;
+}
