@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicacionPizzaExamen2", "ApplicacionPizzaExamen2\ApplicacionPizzaExamen2.csproj", "{1BCB346B-75B0-48E0-9C5D-9967A86FCB2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicacionPizzaExamen2.Tests", "ApplicacionPizzaExamen2.Tests\ApplicacionPizzaExamen2.Tests.csproj", "{0E992B95-CDA7-454E-B261-6ACC3D846321}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BCB346B-75B0-48E0-9C5D-9967A86FCB2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BCB346B-75B0-48E0-9C5D-9967A86FCB2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BCB346B-75B0-48E0-9C5D-9967A86FCB2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BCB346B-75B0-48E0-9C5D-9967A86FCB2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E992B95-CDA7-454E-B261-6ACC3D846321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E992B95-CDA7-454E-B261-6ACC3D846321}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E992B95-CDA7-454E-B261-6ACC3D846321}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E992B95-CDA7-454E-B261-6ACC3D846321}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5E1126B-11DB-4C9D-BB3D-222EF3F8E19B}
+	EndGlobalSection
+EndGlobal
