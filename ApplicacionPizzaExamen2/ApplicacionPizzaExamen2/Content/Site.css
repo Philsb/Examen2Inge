@@ -1,5 +1,11 @@
 ﻿body {
     padding-bottom: 20px;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 300;
+}
+
+h2 {
+    font-family: 'Fredoka One', cursive;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -20,4 +26,26 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.navbar-orange {
+    background-color: #fd7e14;
+    font-family: 'Fredoka One', cursive;
+}
+
+.navbar-orange a{
+    color: white;
+}
+
+.font-link {
+
+
+}
+.pizza-banner {
+    background-image: url('../../Content/Imagenes pizza/Pizza-banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center  -100px;
+    height: 20vw;
+    color: white;
 }
