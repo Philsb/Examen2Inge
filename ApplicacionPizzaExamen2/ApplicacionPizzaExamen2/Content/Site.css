@@ -2,6 +2,7 @@
     padding-bottom: 20px;
     font-family: 'Heebo', sans-serif;
     font-weight: 300;
+    background-image: url('imagenes pizza/bg-configurator-header.jpg');
 }
 
 h2 {
@@ -12,6 +13,7 @@ h2 {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -48,4 +50,33 @@ textarea {
     background-position: center  -100px;
     height: 20vw;
     color: white;
+    border-bottom: 10px solid white;
+}
+
+.margin-top {
+    margin-top: 60px;
+}
+
+.shadow {
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15) !important;
+}
+
+.box-btn {
+    background-color: #537b3d;
+    border-radius: 10px;
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.box-btn:hover {
+    background-color: white;
+    color: #537b3d;
+}
+
+.box-btn-activated {
+    border-radius: 10px;
+    color: white;
+    background-color: white;
+    color: #537b3d;
 }
