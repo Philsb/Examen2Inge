@@ -145,6 +145,9 @@
     <Content Include="Content\fontawesome.min.css" />
     <Content Include="Content\Imagenes pizza\bg-configurator-header.jpg" />
     <Content Include="Content\Imagenes pizza\bg-configurator-product.jpg" />
+    <Content Include="Content\Imagenes pizza\grande.PNG" />
+    <Content Include="Content\Imagenes pizza\mediana.PNG" />
+    <Content Include="Content\Imagenes pizza\pequeña.PNG" />
     <Content Include="Content\Imagenes pizza\Pizza-banner.jpg" />
     <Content Include="Content\Imagenes pizza\products\en\2x\10CB.png" />
     <Content Include="Content\Imagenes pizza\products\en\2x\5W.png" />

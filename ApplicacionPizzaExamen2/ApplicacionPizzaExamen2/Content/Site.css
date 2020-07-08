@@ -1,6 +1,6 @@
 ﻿body {
     padding-bottom: 20px;
-    font-family: 'Heebo', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 300;
     background-image: url('imagenes pizza/bg-configurator-header.jpg');
 }
@@ -118,24 +118,102 @@ textarea {
     border-radius: 25px;
     background-color: #eaf0f3;
     border: solid 2px white;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: -4%;
     text-align: center;
 }
 
+.nav-bar-text {
+    font-size: 20px;
+    font-weight: 400;
+    color: #6d7273;
+    border: none;
+    background-color: transparent;
+    border-bottom:  solid 1px transparent;
+}
+
+.active {
+    border-radius: 25px;
+    background-color: white;
+    border-bottom: solid 1px red;
+}
+
+
 .formulario-pizza-body {
     background-image: url('imagenes pizza/bg-configurator-header.jpg');
+}
+
+.tamano-body {
+    border-radius: 5px;
+    background-color: #f2f5f7;
+    border:solid 1px #bfc9d2;
+    text-align: center;
+}
+.tamano-text {
+    font-size: 14px;
+    font-weight:700;
+    color: #5f3518;
+    margin-left:5px;
+    text-align:center;
+}
+.red-divider-tamano {
+    border-bottom: solid 1px red;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.box-item {
+    border-radius: 15px;
+    background-color: #f2f5f7;
+    padding: 12px;
+    box-shadow: 0px 0px 0px 1px #bfc9d2 inset;
 }
 
 .select_item {
     display: none !important;
 }
 
-.label_item {
-    opacity: 1;
+.select_item:checked + label {
+    box-shadow: 0px 0px 0px 2px orange inset;
 }
 
-.select_item:checked + label {
-    border: solid 2px orange;
+.seleccionar-text {
+    margin-left: 8px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    color: orange;
+}
+.item-name {
+    margin-left: 8px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    color: #5f3518;
+}
+.red-divider {
+    border-bottom: solid 1px red;
+    margin-left: 5%;
+    margin-right: 40%;
+}
+
+.box-header {
+    margin-right: 0px;
+    margin-left: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px;
+    padding-left: 15px;
+    background-color: #68a0ff;
+    color: white;
+}
+
+.box-header-title {
+    padding: 10px;
+    padding-left: 0px;
+    height: 33px;
+    line-height: 1.0;
+    font-size: 17px !important;
+    font-weight: 400;
+}
+
+.box-header-links {
+    padding: 10px;
+    height: 40px;
+    color: white;
 }
