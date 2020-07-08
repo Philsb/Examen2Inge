@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace ApplicacionPizzaExamen2.Controllers
 {
-    public class HomeController : Controller
+    public class PizzaAppController : Controller
     {
         public ActionResult Index()
         {
