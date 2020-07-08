@@ -1,5 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    @model ApplicacionPizzaExamen2.Models.PizzaOrdenModel
+
 }
 <head>
     <script>
@@ -41,18 +43,18 @@
 
         }
 
-       
+
     </script>
 
 
 </head>
 
 <div class="pizza-banner shadow">
-      
+
     <div class="container body-content">
         @*<h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+            <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+            <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
 
     </div>
 
@@ -86,14 +88,14 @@
         </div>
     </div>
 </div>
-<div id="modal" class="row modal" >
+<div id="modal" class="row modal">
     <div class="box-container">
         <div class="box-header row">
             <div class="col-md-11 box-header-title">Arma tu pizza</div>
             <button id="close" class="col-md-1 btn box-header-links" onclick="quitarFormularioPizza()">Cancelar</button>
         </div>
         <div class="contenedor-blanco formulario-pizza-body ">
-            @using (Html.BeginForm("CalcularNota", "CalcularNota", FormMethod.Post, new { enctype = "multipart/form-data", @id = "form" }))
+            @using (Html.BeginForm("SumarACarrito", "PizzaApp", FormMethod.Post, new { enctype = "multipart/form-data", @id = "form" }))
             {
                 <div class="row buttons-navbar " style="margin-left: 5%; margin-right: 5%;">
                     <button id="baseButton" type="button" onclick="toggleTabFormulario(this, 'base')" class="btn col-md-4 nav-bar-text"><i class="fas fa-cheese"></i>  Masa/Salsa/Queso</button>
@@ -438,11 +440,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="col-form-label" for="NombreCliente" style="width: 100%; height: 100%; padding: 5px;"> Su nombre: </label>
-                                    <input class="form-control" type="text" name="nombreCliente" value="" />
+                                    @*<input class="form-control" type="text" name="nombreCliente" value="" />*@
+                                    @Html.TextBoxFor(model => model.NombreCliente, new { @class = "form-control box-input", @placeholder = "Ciudad" })
                                 </div>
                                 <div class="form-group">
                                     <label class="col-form-label" for="CiudadCliente" style="width: 100%; height: 100%; padding: 5px;"> Ciudad de envio: </label>
-                                    <input class="form-control" type="text" name="ciudadCliente" value="" />
+                                    @*<input class="form-control" type="text" name="ciudadCliente" value="" />*@
+                                    @Html.TextBoxFor(model => model.CiudadCliente, new { @class = "form-control box-input", @placeholder = "Ciudad" })
                                 </div>
                                 <div class="form-group">
                                     <label class="col-form-label" for="DireccionCliente" style="width: 100%; height: 100%; padding: 5px;"> Dirección específica: </label>

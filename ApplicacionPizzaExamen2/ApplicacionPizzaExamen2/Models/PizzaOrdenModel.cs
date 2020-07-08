@@ -8,23 +8,15 @@ namespace ApplicacionPizzaExamen2.Models
 {
     public class PizzaOrdenModel
     {
-        List<string> ListaToppings;
-        [Required]
-        string TamanoPizza;
-        [Required]
-        string MasaPizza;
-        [Required]
-        string SalsaPizza;
-        [Required]
-        string QuesoPizza;
-        [Required]
-        string NombreCliente;
-        [Required]
-        string CiudadCliente;
-        [Required]
-        string DireccionCliente;
-        [Required]
-        string NumeroCliente;
+        public List<string> ListaToppings { get; set; }
+        public string TamanoPizza { get; set; }
+        public string MasaPizza { get; set; }
+        public string SalsaPizza { get; set; }
+        public string QuesoPizza { get; set; }
+        public string NombreCliente { get; set; }
+        public string CiudadCliente { get; set; }
+        public string DireccionCliente { get; set; }
+        public string NumeroCliente { get; set; }
 
     }
 }
