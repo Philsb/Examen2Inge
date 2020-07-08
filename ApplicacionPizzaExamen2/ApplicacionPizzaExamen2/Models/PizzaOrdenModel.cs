@@ -9,7 +9,7 @@ namespace ApplicacionPizzaExamen2.Models
 {
     public class PizzaOrdenModel
     {
-        public List<string> ListaToppings { get; set; } = new List<string>();
+        public IList<string> ListaToppings { get; set; } = new List<string>();
         [Required]
         public string TamanoPizza { get; set; }
         [Required]
@@ -38,7 +38,7 @@ namespace ApplicacionPizzaExamen2.Models
     public class PizzaFacturaModel
     {
         public PizzaOrdenModel Orden { get; set; }
-        public List<double> ListaPrecioToppings { get; set; }
+        public IList<double> ListaPrecioToppings { get; set; } = new List<double>();
         public double PrecioTamanoPizza { get; set; }
         public double PrecioMasaPizza { get; set; }
         public double PrecioSalsaPizza { get; set; }

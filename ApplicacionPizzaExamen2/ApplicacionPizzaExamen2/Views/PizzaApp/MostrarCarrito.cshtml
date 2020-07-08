@@ -1,26 +1,11 @@
 ﻿@{
     ViewBag.Title = "MostrarCarrito";
-    
+
 }
     <div class="container body-content ">
 
         @if (ViewBag.Factura != null)
         {
-            <div class="box-header row">
-                <div class="col-md-11 box-header-title">Arma tu pizza</div>
-                <button id="close" class="col-md-1 btn box-header-links" onclick="quitarFormularioPizza()">Cancelar</button>
-            </div>
-            <div class="contenedor-blanco">
-                asd
-            </div>
-
-        }
-        else
-        {
-            @*<br />
-            <br />
-            <br />
-            <h2>Lo sentimos el carrito esta vacío.</h2>*@
             <br />
             <div class="box-header row">
                 <div class="col-md-11 box-header-title">Carrito de compra</div>
@@ -31,47 +16,63 @@
                 <h2> Una pizza </h2>
                 <hr />
 
-                <h4> Tamaño: Mediano x 4000.00 ₡</h4>
+                <h4> Tamaño: @ViewBag.Factura.Orden.TamanoPizza x @ViewBag.Factura.PrecioTamanoPizza ₡</h4>
                 <hr />
                 <h4> Ingredientes base de la pizza: </h4>
                 <div style="margin-left: 10%;">
 
-                    <h4>Masa fina x 300 ₡</h4>
-                    <h4>Masa fina x 300 ₡ </h4>
-                    <h4>Masa fina x 300 ₡ </h4>
+                    <h4>@ViewBag.Factura.Orden.MasaPizza x @ViewBag.Factura.PrecioMasaPizza ₡</h4>
+                    <h4>@ViewBag.Factura.Orden.SalsaPizza x @ViewBag.Factura.PrecioSalsaPizza ₡</h4>
+                    <h4>@ViewBag.Factura.Orden.QuesoPizza x @ViewBag.Factura.PrecioQuesoPizza ₡</h4>
                     <hr />
-                    <h4> Total por pizza base:  </h4>
+                    <h4> Total por pizza base: @ViewBag.Factura.PrecioTotalBase ₡</h4>
                 </div>
                 <hr />
                 <h4> Toppings: </h4>
                 <div style="margin-left: 10%;">
-
-                    <h4> Tipo de masa: Masa fina x 300 ₡</h4>
-                    <h4> Tipo de Salsa: Masa fina x 300 ₡ </h4>
-                    <h4> Ingredientes: Masa fina x 300 ₡ </h4>
-                    <h4> Ingredientes base de la pizza: </h4>
+                    @{
+                        for (int i = 0; i < ViewBag.Factura.ListaPrecioToppings.Count; i++)
+                        {
+                            <h4>@ViewBag.Factura.Orden.ListaToppings[i] x @ViewBag.Factura.ListaPrecioToppings[i] ₡</h4>
+                        }
+                    }
                     <hr />
-                    <h4> Total por toppings:  </h4>
+                    <h4> Total por toppings: @ViewBag.Factura.PrecioTotalToppings ₡</h4>
                 </div>
                 <hr />
                 <h4> Información de envio:</h4>
 
                 <div style="margin-left: 10%;">
-                    <h4> Nombre: Masa fina x 300 ₡</h4>
-                    <h4> Ciudad: Masa fina x 300 ₡ </h4>
-                    <h4> Dirección: Masa fina x 300 ₡ </h4>
-                    <h4> Teléfono:  </h4>
-                    
+                    <h4> Nombre: @ViewBag.Factura.Orden.NombreCliente</h4>
+                    <h4> Ciudad: @ViewBag.Factura.Orden.CiudadCliente</h4>
+                    <h4> Dirección: @ViewBag.Factura.Orden.DireccionCliente </h4>
+                    <h4> Teléfono:  @ViewBag.Factura.Orden.NumeroCliente </h4>
+
                 </div>
                 <hr />
-                <h4> Costo de envio:  </h4>
-                <h4> Subtotal:  </h4>
-                <h4> Impuesto:  </h4>
+                <h4> Costo de envío:  @ViewBag.Factura.PrecioEnvio ₡</h4>
+                <h4> Subtotal:  @ViewBag.Factura.PrecioSubtotal ₡</h4>
+                <h4> Impuesto:  @ViewBag.Factura.PrecioImpuesto ₡</h4>
                 <hr />
-                <h4> Total:  </h4>
+                <h4> Total:  @ViewBag.Factura.PrecioTotal ₡</h4>
+                <br />
+                <a class="btn cancel-btn" href="@Url.Action("TramitarOrden", "PizzaApp", new { estadoOrden = "Cancelada"}, null)">Cancelar pedido</a>
+                <a class="btn submit-btn" href="@Url.Action("TramitarOrden", "PizzaApp", new { estadoOrden = "Aceptada"}, null)">Ordenar pedido</a>
+
 
 
             </div>
+
+        }
+        else
+        {
+            <br />
+            <br />
+            <br />
+            <h2>Lo sentimos el carrito esta vacío.</h2>
+            <br />
+            <br />             
+            @Html.ActionLink("Regresar a la página principal", "Index", "PizzaApp", new { @class = "btn submit-btn" })
         }
 
 

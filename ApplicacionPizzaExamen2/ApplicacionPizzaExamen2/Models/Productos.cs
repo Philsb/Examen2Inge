@@ -31,9 +31,10 @@ namespace ApplicacionPizzaExamen2.Models
             //Salsa
             Salsas.Add("Tomate");
             Salsas.Add("Pesto");
+            Salsas.Add("Buffalo");
             Salsas.Add("Crema y ajo");
             //Queso
-            Quesos.Add("Mozarella");
+            Quesos.Add("Mozzarella");
             Quesos.Add("Parmesano");
             Quesos.Add("Cuatro quesos");
             Quesos.Add("Sin queso");
@@ -67,10 +68,11 @@ namespace ApplicacionPizzaExamen2.Models
             Precios.Add("Masa gruesa", 200.00);
             //Precios de Salsa
             Precios.Add("Tomate", 0.00);
-            Precios.Add("Pesto", 300.00);
+            Precios.Add("Pesto", 400.00);
+            Precios.Add("Buffalo", 300.00);
             Precios.Add("Crema y ajo", 300.0);
             //Precios de Queso
-            Precios.Add("Mozarella", 300.00);
+            Precios.Add("Mozzarella", 300.00);
             Precios.Add("Parmesano", 400.0);
             Precios.Add("Cuatro quesos", 500.00);
             Precios.Add("Sin queso", 0.00);

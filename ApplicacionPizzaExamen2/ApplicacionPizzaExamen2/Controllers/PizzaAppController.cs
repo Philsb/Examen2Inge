@@ -16,6 +16,10 @@ namespace ApplicacionPizzaExamen2.Controllers
             {
                 ViewBag.MensajeExito = TempData["MensajeExito"];
             }
+            if (TempData["MensajeCancelar"] != null) {
+                ViewBag.MensajeCancelar = TempData["MensajeCancelar"];
+
+            }
             if (TempData["MensajeError"] != null)
             {
                 ViewBag.MensajeError = TempData["MensajeError"];
@@ -39,8 +43,8 @@ namespace ApplicacionPizzaExamen2.Controllers
         [HttpPost]
         public ActionResult SumarACarrito(PizzaOrdenModel model) {
             PizzaFacturaModel factura;
-            try { 
-                factura = CalcularPrecios(model); 
+            try {
+                factura = CalcularPrecios(model);
             }
             catch (Exception ex) {
                 Console.WriteLine("Error: {0}", ex.ToString());
@@ -49,7 +53,7 @@ namespace ApplicacionPizzaExamen2.Controllers
 
             }
             @TempData["Factura"] = factura;
-    
+
             return RedirectToAction("MostrarCarrito", "PizzaApp");
         }
 
@@ -60,6 +64,19 @@ namespace ApplicacionPizzaExamen2.Controllers
             }
 
             return View();
+        }
+
+        public ActionResult TramitarOrden(string estadoOrden) {
+
+            if (estadoOrden.Equals("Cancelada")) {
+                @TempData["MensajeCancelar"] = "Orden cancelada.";
+            }
+            if (estadoOrden.Equals("Aceptada"))
+            {
+                @TempData["MensajeExito"] = "Pizza ordenada! Su comida debería llegar pronto al lugar de destino.";
+            }
+
+            return RedirectToAction("Index", "PizzaApp");
         }
 
         public PizzaFacturaModel CalcularPrecios(PizzaOrdenModel model) {
@@ -75,6 +92,7 @@ namespace ApplicacionPizzaExamen2.Controllers
             factura.PrecioQuesoPizza = productos.GetPrecioDeProducto(model.QuesoPizza);
             factura.PrecioTotalBase = factura.PrecioTamanoPizza + factura.PrecioMasaPizza + factura.PrecioSalsaPizza + factura.PrecioQuesoPizza;
 
+            
             //Calcula la parte de precio de toppings
             foreach (string producto in model.ListaToppings) {
                 double precioTopping = productos.GetPrecioDeProducto(producto);

@@ -228,6 +228,19 @@ h2 {
     font-weight: 600;
 }
 
+.cancel-btn {
+    background-color: #dc3545;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.cancel-btn:hover {
+    background-color: white;
+    color: #dc3545;
+}
+
 .submit-btn:hover {
     background-color: white;
     color: #537b3d;

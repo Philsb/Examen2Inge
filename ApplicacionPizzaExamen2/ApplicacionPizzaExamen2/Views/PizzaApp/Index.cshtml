@@ -92,7 +92,7 @@
     <div class="box-container">
         <div class="box-header row">
             <div class="col-md-11 box-header-title">Arma tu pizza</div>
-            <button id="close" class="col-md-1 btn box-header-links" onclick="quitarFormularioPizza()">Cancelar</button>
+            <button type="button" id="close" class="col-md-1 btn box-header-links" onclick="quitarFormularioPizza()">Cancelar</button>
         </div>
         <div class="contenedor-blanco formulario-pizza-body ">
             @using (Html.BeginForm("SumarACarrito", "PizzaApp", FormMethod.Post, new { enctype = "multipart/form-data", @id = "form" }))
