@@ -32,6 +32,7 @@ namespace ApplicacionPizzaExamen2.Controllers
 
             if (/*ModeloValido(model)*/ true)
             {
+                PizzaFacturaModel factura = CalcularPrecios(model);
                 //DesgloseNotasModel desgloseDeNotas = SacarNotaFinal(model);
                 //ViewBag.Message = "Your application description page.";
                 //@TempData["Desglose"] = desgloseDeNotas;
@@ -39,8 +40,9 @@ namespace ApplicacionPizzaExamen2.Controllers
             return RedirectToAction("Index", "PizzaApp");
         }
 
-        /*[HttpPost]
-        public ActionResult CalcularNota(FormularioNotaModel model)
+       
+        /*
+        public ActionResult CalcularPrecio(PizzaOrdenModel model)
         {
 
             if (ModeloValido(model))
