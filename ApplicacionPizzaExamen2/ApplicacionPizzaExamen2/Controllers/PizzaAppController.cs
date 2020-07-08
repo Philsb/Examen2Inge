@@ -42,10 +42,10 @@ namespace ApplicacionPizzaExamen2.Controllers
             }
             @TempData["Factura"] = factura;
     
-            return RedirectToAction("MostrarFactura", "PizzaApp");
+            return RedirectToAction("MostrarCarrito", "PizzaApp");
         }
 
-        public ActionResult MostrarFactura()
+        public ActionResult MostrarCarrito()
         {
             if (TempData["Factura"] != null) {
                 ViewBag.Factura = TempData["Factura"];
@@ -77,7 +77,8 @@ namespace ApplicacionPizzaExamen2.Controllers
             //Calcula los precios finales sumados con el 13% de impuesto;
             factura.PrecioEnvio = 1000.00;
             factura.PrecioSubtotal = factura.PrecioTotalBase + factura.PrecioTotalToppings + factura.PrecioEnvio;
-            factura.PrecioConImpuestos = factura.PrecioSubtotal + (factura.PrecioSubtotal * 0.13);
+            factura.PrecioImpuesto = (factura.PrecioSubtotal * 0.13);
+            factura.PrecioTotal = factura.PrecioSubtotal + factura.PrecioImpuesto;
 
             return factura;
         }

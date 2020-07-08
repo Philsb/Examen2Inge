@@ -11,7 +11,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar navbar-orange">
-        <a class="navbar-brand" href="@Url.Action("Index", "Home")" style="font-size: 35px;">Pizza Co.</a>
+        <a class="navbar-brand" href="@Url.Action("Index", "PizzaApp")" style="font-size: 35px;">Pizza Co.</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -19,19 +19,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav my-2 my-lg-0">
-                <li class="nav-item">@Html.ActionLink("Nuestros Ingredientes", "Index", "Home", new { @class = "nav-link" })</li>
-                <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { @class = "nav-link" })</li>
-                <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { @class = "nav-link" })</li>
+                <li class="nav-item">@Html.ActionLink("Nuestros Ingredientes", "Index", "PizzaApp", new { @class = "nav-link" })</li>
+                <li class="nav-item">@Html.ActionLink("About", "About", "PizzaApp", new { @class = "nav-link" })</li>
+                <li class="nav-item">@Html.ActionLink("Contact", "Contact", "PizzaApp", new { @class = "nav-link" })</li>
 
             </ul>
         </div>
     </nav>
     <div>
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

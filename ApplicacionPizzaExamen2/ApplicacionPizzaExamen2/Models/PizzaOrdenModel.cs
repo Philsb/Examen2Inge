@@ -18,13 +18,17 @@ namespace ApplicacionPizzaExamen2.Models
         public string SalsaPizza { get; set; }
         [Required]
         public string QuesoPizza { get; set; }
-        [Required(ErrorMessage = "Por favor ingrese su nombre completo.")]
+        [Required(ErrorMessage = "Por favor ingrese un nombre con que identificarse.")]
+        [MaxLength(200, ErrorMessage = "El nombre no puede ser mayor a 200 caracteres.")]
         public string NombreCliente { get; set; }
         [Required(ErrorMessage = "Por favor ingrese la ciudad de envio.")]
+        [MaxLength(200, ErrorMessage = "El nombre de la ciudad no puede ser mayor a 200 caracteres.")]
         public string CiudadCliente { get; set; }
         [Required(ErrorMessage = "Por favor ingrese la dirección de envio.")]
+        [MaxLength(1500, ErrorMessage = "La dirección de envio no puede ser mayor a 1500 caracteres.")]
         public string DireccionCliente { get; set; }
         [Required(ErrorMessage = "Por favor ingrese su número telefónico")]
+        [StringLength(8, MinimumLength = 8, ErrorMessage = "Por favor ingrese un númerico telefónico de 8 cifras.")]
         [RegularExpression("^[0-9]*$",
          ErrorMessage = "Solo caracteres del 0-9 son permitidos.")]
         public string NumeroCliente { get; set; }
@@ -43,7 +47,8 @@ namespace ApplicacionPizzaExamen2.Models
         public double PrecioTotalToppings { get; set; }
         public double PrecioEnvio { get; set; }
         public double PrecioSubtotal { get; set; }
-        public double PrecioConImpuestos { get; set; }
+        public double PrecioImpuesto { get; set; }
+        public double PrecioTotal { get; set; }
     }
 
 
