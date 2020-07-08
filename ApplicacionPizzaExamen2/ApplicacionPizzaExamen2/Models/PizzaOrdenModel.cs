@@ -33,13 +33,15 @@ namespace ApplicacionPizzaExamen2.Models
 
     public class PizzaFacturaModel
     {
-        PizzaOrdenModel Orden { get; set; }
+        public PizzaOrdenModel Orden { get; set; }
         public List<double> ListaPrecioToppings { get; set; }
         public double PrecioTamanoPizza { get; set; }
         public double PrecioMasaPizza { get; set; }
         public double PrecioSalsaPizza { get; set; }
         public double PrecioQuesoPizza { get; set; }
-        public double precioEnvio { get; set; }
+        public double PrecioTotalBase { get; set; }
+        public double PrecioTotalToppings { get; set; }
+        public double PrecioEnvio { get; set; }
         public double PrecioSubtotal { get; set; }
         public double PrecioConImpuestos { get; set; }
     }

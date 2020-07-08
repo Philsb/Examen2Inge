@@ -93,7 +93,7 @@ namespace ApplicacionPizzaExamen2.Models
             Precios.Add("Culantro", 50.00);
         }
 
-        public double getPrecioDeProducto(string producto) {
+        public double GetPrecioDeProducto(string producto) {
             double precio = 0.00;
             try
             {
