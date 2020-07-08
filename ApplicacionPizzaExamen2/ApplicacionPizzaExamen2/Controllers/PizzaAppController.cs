@@ -12,6 +12,14 @@ namespace ApplicacionPizzaExamen2.Controllers
     {
         public ActionResult Index()
         {
+            if (TempData["MensajeExito"] != null)
+            {
+                ViewBag.MensajeExito = TempData["MensajeExito"];
+            }
+            if (TempData["MensajeError"] != null)
+            {
+                ViewBag.MensajeError = TempData["MensajeError"];
+            }
             return View();
         }
 
@@ -36,7 +44,7 @@ namespace ApplicacionPizzaExamen2.Controllers
             }
             catch (Exception ex) {
                 Console.WriteLine("Error: {0}", ex.ToString());
-                @TempData["Error"] = "Error al tramitar orden.";
+                @TempData["MensajeError"] = "Error al tramitar orden.";
                 return RedirectToAction("Index", "PizzaApp");
 
             }
