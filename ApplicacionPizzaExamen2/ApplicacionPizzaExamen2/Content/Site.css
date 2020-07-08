@@ -23,12 +23,6 @@ h2 {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
 
 .navbar-orange {
     background-color: #fd7e14;
@@ -108,10 +102,44 @@ textarea {
     margin-bottom: 20px;
 }
 
+.box-header {
+    margin-right: 0px;
+    margin-left: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px;
+    padding-left: 15px;
+    background-color: orange;
+    color: white;
+}
+
+.box-header-title {
+    padding: 10px;
+    padding-left: 0px;
+    height: 33px;
+    line-height: 1.0;
+    font-size: 17px !important;
+    font-weight: 400;
+}
+
+.box-header-links {
+    padding: 5px;
+    height: 40px;
+    color: white;
+}
+
+.close {
+    float: right;
+    opacity: 0.7;
+}
+
 .contenedor-blanco {
     padding: 25px;
     border-radius: 25px;
     background-color: white;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+
 }
 .nav-bar-pizza {
     padding: 25px;
@@ -192,28 +220,3 @@ textarea {
     margin-right: 40%;
 }
 
-.box-header {
-    margin-right: 0px;
-    margin-left: 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 5px;
-    padding-left: 15px;
-    background-color: #68a0ff;
-    color: white;
-}
-
-.box-header-title {
-    padding: 10px;
-    padding-left: 0px;
-    height: 33px;
-    line-height: 1.0;
-    font-size: 17px !important;
-    font-weight: 400;
-}
-
-.box-header-links {
-    padding: 10px;
-    height: 40px;
-    color: white;
-}
