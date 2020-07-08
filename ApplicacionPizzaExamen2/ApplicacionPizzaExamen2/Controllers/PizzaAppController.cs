@@ -30,15 +30,28 @@ namespace ApplicacionPizzaExamen2.Controllers
         }
         [HttpPost]
         public ActionResult SumarACarrito(PizzaOrdenModel model) {
-
-            if (/*ModeloValido(model)*/ true)
-            {
-                PizzaFacturaModel factura = CalcularPrecios(model);
-                //DesgloseNotasModel desgloseDeNotas = SacarNotaFinal(model);
-                //ViewBag.Message = "Your application description page.";
-                //@TempData["Desglose"] = desgloseDeNotas;
+            PizzaFacturaModel factura;
+            try { 
+                factura = CalcularPrecios(model); 
             }
-            return RedirectToAction("Index", "PizzaApp");
+            catch (Exception ex) {
+                Console.WriteLine("Error: {0}", ex.ToString());
+                @TempData["Error"] = "Error al tramitar orden.";
+                return RedirectToAction("Index", "PizzaApp");
+
+            }
+            @TempData["Factura"] = factura;
+    
+            return RedirectToAction("MostrarFactura", "PizzaApp");
+        }
+
+        public ActionResult MostrarFactura()
+        {
+            if (TempData["Factura"] != null) {
+                ViewBag.Factura = TempData["Factura"];
+            }
+
+            return View();
         }
 
         public PizzaFacturaModel CalcularPrecios(PizzaOrdenModel model) {
@@ -69,7 +82,5 @@ namespace ApplicacionPizzaExamen2.Controllers
             return factura;
         }
 
-
-        
     }
 }

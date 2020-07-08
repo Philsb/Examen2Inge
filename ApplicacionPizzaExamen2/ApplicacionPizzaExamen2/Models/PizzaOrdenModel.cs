@@ -9,7 +9,7 @@ namespace ApplicacionPizzaExamen2.Models
 {
     public class PizzaOrdenModel
     {
-        public List<string> ListaToppings { get; set; }
+        public List<string> ListaToppings { get; set; } = new List<string>();
         [Required]
         public string TamanoPizza { get; set; }
         [Required]
