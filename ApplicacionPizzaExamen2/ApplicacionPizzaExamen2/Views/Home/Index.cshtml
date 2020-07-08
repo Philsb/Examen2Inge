@@ -89,342 +89,383 @@
 <div id="modal" class="row modal" >
     <div class="box-container">
         <div class="box-header row">
-            <div class="col-md-11 box-header-title">Formulario de calificación</div>
+            <div class="col-md-11 box-header-title">Arma tu pizza</div>
             <button id="close" class="col-md-1 btn box-header-links" onclick="quitarFormularioPizza()">Cancelar</button>
         </div>
         <div class="contenedor-blanco formulario-pizza-body ">
-            <div class="row buttons-navbar " style="margin-left: 5%; margin-right: 5%;">
-                <button id="baseButton" type="button" onclick="toggleTabFormulario(this, 'base')" class="btn col-md-4 nav-bar-text"><i class="fas fa-cheese"></i>  Masa/Salsa/Queso</button>
-                <button id="toppingsButton" type="button" onclick="toggleTabFormulario(this, 'toppings')" class="btn col-md-4 nav-bar-text"><i class="fas fa-pepper-hot"></i>  Toppings</button>
-                <button id="lugarButton" type="button" onclick="toggleTabFormulario(this, 'lugar')" class="btn col-md-4 nav-bar-text"><i class="fas fa-pepper-hot"></i>  Lugar de envio</button>
-            </div>
-            <hr />
-            <div class="row" style="padding: 15px;">
-                <div class="col-md-3">
-                    <h2 style="text-align:center;">Tu pizza</h2>
-                    <img src="~/Content/Imagenes pizza/toppings/en/2x/W.png" alt="Pizza base" style="width:280px;height:280px;">
-                    <div class="row" style="justify-content:center; margin-left: 5px; margin-top: 15px; ">
-                        asdasdasdasdasd
-
-                    </div>
-                    <div class="row tamano-body" style="margin-left: 15px; margin-top: 10px;">
-                        <div class="col-md-4" style="padding-left:0px; padding-right:0px;">
-                            <input type="radio" class="select_item" name="pizzaSize" id="choose-size-small" value="jamon" />
-                            <label for="choose-size-small" style="width: 100%; height: 100%; padding: 5px;">
-                                <span class=" tamano-text row">Pequeña</span>
-                                <span class="tamano-text row">6 slices</span>
-                                <span class="row red-divider-tamano"></span>
-                                <i class="row fas fa-pizza-slice fa-1x" style="padding-top:25px;"></i>
-                            </label>
-                        </div>
-                        <div class="col-md-4" style="padding-left:0px; padding-right:0px;">
-                            <input type="radio" class="select_item" name="pizzaSize" id="choose-size-medium" value="jamon" checked />
-                            <label for="choose-size-medium" style="width: 100%; height: 100%; padding: 5px;">
-                                <span class="tamano-text row">Mediana</span>
-                                <span class="tamano-text row">8 slices</span>
-                                <span class="row red-divider-tamano"></span>
-                                <i class="row fas fa-pizza-slice fa-2x" style="padding-top:15px;"></i>
-                            </label>
-                        </div>
-                        <div class="col-md-4" style="padding-left:0px; padding-right:0px;">
-                            <input type="radio" class="select_item" name="pizzaSize" id="choose-size-large" value="jamon" />
-                            <label for="choose-size-large" style="width: 100%; height: 100%; padding: 5px;">
-                                <span class="tamano-text row">Grande</span>
-                                <span class="tamano-text row">10 slices</span>
-                                <span class="row red-divider-tamano"></span>
-                                <i class="row fas fa-pizza-slice fa-3x" style="padding-top:10px;"></i>
-                            </label>
-                        </div>
-                    </div>
+            @using (Html.BeginForm("CalcularNota", "CalcularNota", FormMethod.Post, new { enctype = "multipart/form-data", @id = "form" }))
+            {
+                <div class="row buttons-navbar " style="margin-left: 5%; margin-right: 5%;">
+                    <button id="baseButton" type="button" onclick="toggleTabFormulario(this, 'base')" class="btn col-md-4 nav-bar-text"><i class="fas fa-cheese"></i>  Masa/Salsa/Queso</button>
+                    <button id="toppingsButton" type="button" onclick="toggleTabFormulario(this, 'toppings')" class="btn col-md-4 nav-bar-text"><i class="fas fa-pepper-hot"></i>  Toppings</button>
+                    <button id="lugarButton" type="button" onclick="toggleTabFormulario(this, 'lugar')" class="btn col-md-4 nav-bar-text"><i class="fas fa-pepper-hot"></i>  Lugar de envio</button>
                 </div>
-                <div class="col-md-9" style="padding-left: 60px;">
-                    <div id="base" style="display:none; ">
-                        <div class="row buttons-navbar " style="margin-left: 20%; margin-right:20%; padding: 25px; text-align:center;">
-                            <button id="masaButton" type="button" onclick="toggleTabBase(this, 'masa' )" class="btn col-md-4 nav-bar-text">Masa</button>
-                            <button id="salsaButton" type="button" onclick="toggleTabBase(this, 'salsa')" class="btn col-md-4 nav-bar-text">Salsa</button>
-                            <button id="quesoButton" type="button" onclick="toggleTabBase(this, 'queso')" class="btn col-md-4 nav-bar-text">Queso</button>
+                <hr />
+                <div class="row" style="padding: 15px;">
+                    <div class="col-md-3">
+                        <h2 style="text-align:center;">Tu pizza</h2>
+                        <img src="~/Content/Imagenes pizza/toppings/en/2x/W.png" alt="Pizza base" style="width:280px;height:280px;">
+                        <div class="row" style="justify-content:center; margin-left: 5px; margin-top: 15px; ">
+                            asdasdasdasdasd
 
                         </div>
-                        <hr />
-                        <div id="masa" class="row" style="display:none;">
-                            <div class="col-md-3">
-
-                                <input type="radio" class="select_item" name="choice" id="choose-masa-1" value="jamon" />
-                                <label class="box-item" for="choose-masa-1">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Masa regular</span>
-                                    <span class="row red-divider"></span>
-
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/RD.png" style="width:150px;height:150px;" />
-                                </label>
-
-                            </div>
-                            <div class="col-md-3">
-                                <input type="radio" class="select_item" name="choice" id="choose-masa-2" value="2" />
-                                <label class="box-item" for="choose-masa-2">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Masa fina</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/ZC.png" style="width:150px;height:150px;" />
+                        <div class="row tamano-body" style="margin-left: 15px; margin-top: 10px;">
+                            <div class="col-md-4" style="padding-left:0px; padding-right:0px;">
+                                <input type="radio" class="select_item" name="pizzaSize" id="choose-size-small" value="jamon" />
+                                <label for="choose-size-small" style="width: 100%; height: 100%; padding: 5px;">
+                                    <span class=" tamano-text row">Pequeña</span>
+                                    <span class="tamano-text row">6 slices</span>
+                                    <span class="row red-divider-tamano"></span>
+                                    <i class="row fas fa-pizza-slice fa-1x" style="padding-top:25px;"></i>
                                 </label>
                             </div>
-                            <div class="col-md-3">
-                                <input type="radio" class="select_item" name="choice" id="choose-masa-3" value="2" />
-                                <label class="box-item" for="choose-masa-3">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Masa gruesa</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/ZD.png" style="width:150px;height:150px;" />
+                            <div class="col-md-4" style="padding-left:0px; padding-right:0px;">
+                                <input type="radio" class="select_item" name="pizzaSize" id="choose-size-medium" value="jamon" checked />
+                                <label for="choose-size-medium" style="width: 100%; height: 100%; padding: 5px;">
+                                    <span class="tamano-text row">Mediana</span>
+                                    <span class="tamano-text row">8 slices</span>
+                                    <span class="row red-divider-tamano"></span>
+                                    <i class="row fas fa-pizza-slice fa-2x" style="padding-top:15px;"></i>
                                 </label>
                             </div>
-                        </div>
-                        <div id="salsa" class="row" style="display:none;">
-                            <div class="col-md-3">
-
-                                <input type="radio" class="select_item" name="choice" id="choose-salsa-1" value="jamon" />
-                                <label class="box-item" for="choose-salsa-1">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Tomate </span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/basesauce/SH.png" style="width:150px;height:150px;" />
-                                </label>
-
-                            </div>
-                            <div class="col-md-3">
-                                <input type="radio" class="select_item" name="choice" id="choose-salsa-2" value="2" />
-                                <label class="box-item" for="choose-salsa-2">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Pesto</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/basesauce/SP.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="radio" class="select_item" name="choice" id="choose-salsa-3" value="2" />
-                                <label class="box-item" for="choose-salsa-3">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Buffalo</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/basesauce/BU.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="radio" class="select_item" name="choice" id="choose-salsa-4" value="2" />
-                                <label class="box-item" for="choose-salsa-4">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Crema y ajo   </span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/basesauce/GS.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                        </div>
-                        <div id="queso" class="row">
-                            <div class="col-md-3">
-
-                                <input type="radio" class="select_item" name="choice" id="choose-queso-1" value="jamon" checked />
-                                <label class="box-item" for="choose-queso-1">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Mozzarella </span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/MZ.png" style="width:150px;height:150px;" />
-                                </label>
-
-                            </div>
-                            <div class="col-md-3">
-                                <input type="radio" class="select_item" name="choice" id="choose-queso-2" value="2" />
-                                <label class="box-item" for="choose-queso-2">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Parmesano</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/ZB.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="radio" class="select_item" name="choice" id="choose-queso-3" value="2" />
-                                <label class="box-item" for="choose-queso-3">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Cuatro quesos</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/XC.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="radio" class="select_item" name="choice" id="choose-queso-4" value="2" />
-                                <label class="box-item" for="choose-queso-4">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Sin queso </span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/NC.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div id="toppings" style="display:none;">
-                        <div class="row">
-                            <div class="col-md-3">
-
-                                <input type="checkbox" class="select_item" name="toppingList" id="choose-top-1" value="jamon" />
-                                <label class="box-item" for="choose-top-1">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Jamón</span>
-                                    <span class="row red-divider"></span>
-
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/H.png" style="width:150px;height:150px;" />
-                                </label>
-
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-2" value="2" />
-                                <label class="box-item" for="choose-top-2">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Pepperoni</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/PN.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-3" value="2" />
-                                <label class="box-item" for="choose-top-3">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Tocino</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/BS.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-4" value="2" />
-                                <label class="box-item" for="choose-top-4">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Carne Molida</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/GB.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-5" value="2" />
-                                <label class="box-item" for="choose-top-5">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Salami</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/SA.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-6" value="2" />
-                                <label class="box-item" for="choose-top-6">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Pollo</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/CH.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-7" value="2" />
-                                <label class="box-item" for="choose-top-7">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Chorizo</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/ZO.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-8" value="2" />
-                                <label class="box-item" for="choose-top-8">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Fajitas</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/K.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-9" value="2" />
-                                <label class="box-item" for="choose-top-9">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Champiñones</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/FM.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-10" value="2" />
-                                <label class="box-item" for="choose-top-10">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Aceitunas</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/BO.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-11" value="2" />
-                                <label class="box-item" for="choose-top-11">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Piña</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/PI.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-12" value="2" />
-
-                                <label class="box-item" for="choose-top-12">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Cebolla morada</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/O.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-13" value="2" />
-                                <label class="box-item" for="choose-top-13">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Chile dulce</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/HP.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-14" value="2" />
-                                <label class="box-item" for="choose-top-14">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Espinaca</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/S.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-15" value="2" />
-                                <label class="box-item" for="choose-top-15">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Jalapeño</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/JP.png" style="width:150px;height:150px;" />
-                                </label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" class="select_item" name="choice" id="choose-top-16" value="2" />
-                                <label class="box-item" for="choose-top-16">
-                                    <span class=" seleccionar-text row">Seleccionar</span>
-                                    <span class="item-name row">Culantro</span>
-                                    <span class="row red-divider"></span>
-                                    <img src="~/Content/Imagenes pizza/toppings/en/2x/LN.png" style="width:150px;height:150px;" />
+                            <div class="col-md-4" style="padding-left:0px; padding-right:0px;">
+                                <input type="radio" class="select_item" name="pizzaSize" id="choose-size-large" value="jamon" />
+                                <label for="choose-size-large" style="width: 100%; height: 100%; padding: 5px;">
+                                    <span class="tamano-text row">Grande</span>
+                                    <span class="tamano-text row">10 slices</span>
+                                    <span class="row red-divider-tamano"></span>
+                                    <i class="row fas fa-pizza-slice fa-3x" style="padding-top:10px;"></i>
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <div id="lugar" style="display:none;">
+                    <div class="col-md-9" style="padding-left: 60px;">
+                        <div id="base" style="display:none; ">
+                            <div class="row buttons-navbar " style="margin-left: 20%; margin-right:20%; padding: 25px; text-align:center;">
+                                <button id="masaButton" type="button" onclick="toggleTabBase(this, 'masa' )" class="btn col-md-4 nav-bar-text">Masa</button>
+                                <button id="salsaButton" type="button" onclick="toggleTabBase(this, 'salsa')" class="btn col-md-4 nav-bar-text">Salsa</button>
+                                <button id="quesoButton" type="button" onclick="toggleTabBase(this, 'queso')" class="btn col-md-4 nav-bar-text">Queso</button>
 
+                            </div>
+                            <hr />
+                            <div id="masa" class="row" style="display:none;">
+                                <div class="col-md-3">
 
+                                    <input type="radio" class="select_item" name="masaPizza" id="choose-masa-1" value="jamon" checked />
+                                    <label class="box-item" for="choose-masa-1">
+                                        <span class=" seleccionar-text row">Seleccionar</span>
+                                        <span class="item-name row">Masa regular</span>
+                                        <span class="row red-divider"></span>
+
+                                        <img src="~/Content/Imagenes pizza/toppings/en/2x/RD.png" style="width:150px;height:150px;" />
+                                    </label>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="radio" class="select_item" name="masaPizza" id="choose-masa-2" value="2" />
+                                    <label class="box-item" for="choose-masa-2">
+                                        <span class=" seleccionar-text row">Seleccionar</span>
+                                        <span class="item-name row">Masa fina</span>
+                                        <span class="row red-divider"></span>
+                                        <img src="~/Content/Imagenes pizza/toppings/en/2x/ZC.png" style="width:150px;height:150px;" />
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="radio" class="select_item" name="masaPizza" id="choose-masa-3" value="2" />
+                                    <label class="box-item" for="choose-masa-3">
+                                        <span class=" seleccionar-text row">Seleccionar</span>
+                                        <span class="item-name row">Masa gruesa</span>
+                                        <span class="row red-divider"></span>
+                                        <img src="~/Content/Imagenes pizza/toppings/en/2x/ZD.png" style="width:150px;height:150px;" />
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="salsa" class="row" style="display:none;">
+
+                                <div class="col-md-3">
+
+                                    <input type="radio" class="select_item" name="salsaPizza" id="choose-salsa-1" value="jamon" checked />
+                                    <label class="box-item" for="choose-salsa-1">
+                                        <span class=" seleccionar-text row">Seleccionar</span>
+                                        <span class="item-name row">Tomate </span>
+                                        <span class="row red-divider"></span>
+                                        <img src="~/Content/Imagenes pizza/toppings/en/2x/basesauce/SH.png" style="width:150px;height:150px;" />
+                                    </label>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="radio" class="select_item" name="salsaPizza" id="choose-salsa-2" value="2" />
+                                    <label class="box-item" for="choose-salsa-2">
+                                        <span class=" seleccionar-text row">Seleccionar</span>
+                                        <span class="item-name row">Pesto</span>
+                                        <span class="row red-divider"></span>
+                                        <img src="~/Content/Imagenes pizza/toppings/en/2x/basesauce/SP.png" style="width:150px;height:150px;" />
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="radio" class="select_item" name="salsaPizza" id="choose-salsa-3" value="2" />
+                                    <label class="box-item" for="choose-salsa-3">
+                                        <span class=" seleccionar-text row">Seleccionar</span>
+                                        <span class="item-name row">Buffalo</span>
+                                        <span class="row red-divider"></span>
+                                        <img src="~/Content/Imagenes pizza/toppings/en/2x/basesauce/BU.png" style="width:150px;height:150px;" />
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="radio" class="select_item" name="salsaPizza" id="choose-salsa-4" value="2" />
+                                    <label class="box-item" for="choose-salsa-4">
+                                        <span class=" seleccionar-text row">Seleccionar</span>
+                                        <span class="item-name row">Crema y ajo   </span>
+                                        <span class="row red-divider"></span>
+                                        <img src="~/Content/Imagenes pizza/toppings/en/2x/basesauce/GS.png" style="width:150px;height:150px;" />
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="queso" class="row">
+                                <div class="col-md-3">
+
+                                    <input type="radio" class="select_item" name="quesoPizza" id="choose-queso-1" value="jamon" checked />
+                                    <label class="box-item" for="choose-queso-1">
+                                        <span class=" seleccionar-text row">Seleccionar</span>
+                                        <span class="item-name row">Mozzarella </span>
+                                        <span class="row red-divider"></span>
+                                        <img src="~/Content/Imagenes pizza/toppings/en/2x/MZ.png" style="width:150px;height:150px;" />
+                                    </label>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="radio" class="select_item" name="quesoPizza" id="choose-queso-2" value="2" />
+                                    <label class="box-item" for="choose-queso-2">
+                                        <span class=" seleccionar-text row">Seleccionar</span>
+                                        <span class="item-name row">Parmesano</span>
+                                        <span class="row red-divider"></span>
+                                        <img src="~/Content/Imagenes pizza/toppings/en/2x/ZB.png" style="width:150px;height:150px;" />
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="radio" class="select_item" name="quesoPizza" id="choose-queso-3" value="2" />
+                                    <label class="box-item" for="choose-queso-3">
+                                        <span class=" seleccionar-text row">Seleccionar</span>
+                                        <span class="item-name row">Cuatro quesos</span>
+                                        <span class="row red-divider"></span>
+                                        <img src="~/Content/Imagenes pizza/toppings/en/2x/XC.png" style="width:150px;height:150px;" />
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="radio" class="select_item" name="quesoPizza" id="choose-queso-4" value="2" />
+                                    <label class="box-item" for="choose-queso-4">
+                                        <span class=" seleccionar-text row">Seleccionar</span>
+                                        <span class="item-name row">Sin queso </span>
+                                        <span class="row red-divider"></span>
+                                        <img src="~/Content/Imagenes pizza/toppings/en/2x/NC.png" style="width:150px;height:150px;" />
+                                    </label>
+                                </div>
+                            </div>
+                            <div class=" row">
+                                <div class="col-md-6 " style="margin-left:79%; margin-top: 97px;    ">
+                                    <button type="button" onclick="toggleTabFormulario('#toppingsButton', 'toppings')" class="btn submit-btn">Siguiente <i class="fa fa-arrow-right"></i> </button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="toppings" style="display:none;">
+                            <div style="overflow-y:scroll; overflow-x:hidden; margin-left:-30px; height: 530px;">
+                                <div class="row">
+                                    <div class="col-md-3">
+
+                                        <input type="checkbox" class="select_item" name="toppingList" id="choose-top-1" value="jamon" />
+                                        <label class="box-item" for="choose-top-1">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Jamón</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/H.png" style="width:150px;height:150px;" />
+                                        </label>
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-2" value="2" />
+                                        <label class="box-item" for="choose-top-2">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Pepperoni</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/PN.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-3" value="2" />
+                                        <label class="box-item" for="choose-top-3">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Tocino</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/BS.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-4" value="2" />
+                                        <label class="box-item" for="choose-top-4">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Carne Molida</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/GB.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-5" value="2" />
+                                        <label class="box-item" for="choose-top-5">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Salami</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/SA.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-6" value="2" />
+                                        <label class="box-item" for="choose-top-6">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Pollo</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/CH.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-7" value="2" />
+                                        <label class="box-item" for="choose-top-7">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Chorizo</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/ZO.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-8" value="2" />
+                                        <label class="box-item" for="choose-top-8">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Fajitas</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/K.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-9" value="2" />
+                                        <label class="box-item" for="choose-top-9">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Champiñones</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/FM.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-10" value="2" />
+                                        <label class="box-item" for="choose-top-10">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Aceitunas</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/BO.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-11" value="2" />
+                                        <label class="box-item" for="choose-top-11">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Piña</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/PI.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-12" value="2" />
+
+                                        <label class="box-item" for="choose-top-12">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Cebolla morada</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/O.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-13" value="2" />
+                                        <label class="box-item" for="choose-top-13">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Chile dulce</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/HP.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-14" value="2" />
+                                        <label class="box-item" for="choose-top-14">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Espinaca</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/S.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-15" value="2" />
+                                        <label class="box-item" for="choose-top-15">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Jalapeño</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/JP.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" class="select_item" name="choice" id="choose-top-16" value="2" />
+                                        <label class="box-item" for="choose-top-16">
+                                            <span class=" seleccionar-text row">Seleccionar</span>
+                                            <span class="item-name row">Culantro</span>
+                                            <span class="row red-divider"></span>
+                                            <img src="~/Content/Imagenes pizza/toppings/en/2x/LN.png" style="width:150px;height:150px;" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6" style="margin-left:79%; margin-top: 25px;">
+                                    <button type="button" onclick="toggleTabFormulario('#lugarButton', 'lugar')" class="btn submit-btn"> Siguiente <i class="fa fa-arrow-right"></i></button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="lugar" style="display:none;">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="nombreCliente" style="width: 100%; height: 100%; padding: 5px;"> Su nombre: </label>
+                                    <input class="form-control" type="text" name="nombreCliente" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label" for="ciudadCliente" style="width: 100%; height: 100%; padding: 5px;"> Ciudad de envio: </label>
+                                    <input class="form-control" type="text" name="ciudadCliente" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label" for="direccionCliente" style="width: 100%; height: 100%; padding: 5px;"> Dirección específica: </label>
+                                    <input class="form-control" type="text" name="direccionCliente" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label" for="numeroCliente" style="width: 100%; height: 100%; padding: 5px;"> Número de teléfono: </label>
+                                    <input class="form-control" type="text" name="numeroCliente" />
+                                </div>
+
+                            </div>
+                            <div class=" row form-group">
+                                <div class="col-md-6 " style="margin-left:15px; margin-top: 10px;">
+                                    <button type="submit" class="btn submit-btn"><i class="fas fa-shopping-cart"></i> Añadir pizza al carrito </button>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-                
-            </div>
+            }
+
         </div>
     </div>
 
