@@ -5,6 +5,9 @@
     background-image: url('imagenes pizza/bg-configurator-header.jpg');
 }
 
+h1 {
+    font-family: 'Fredoka One', cursive;
+}
 h2{
     font-family: 'Fredoka One', cursive;
 }

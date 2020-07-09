@@ -34,6 +34,10 @@ namespace ApplicacionPizzaExamen2.Controllers
             return View();
         }
 
+        public ActionResult NuestrosIngredientes() {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult SumarACarrito(PizzaOrdenModel model) {
             PizzaFacturaModel factura;
