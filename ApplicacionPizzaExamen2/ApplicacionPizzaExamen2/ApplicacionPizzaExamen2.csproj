@@ -151,6 +151,8 @@
     <Content Include="Content\Imagenes pizza\mediana.PNG" />
     <Content Include="Content\Imagenes pizza\pequeña.PNG" />
     <Content Include="Content\Imagenes pizza\Pizza-banner.jpg" />
+    <Content Include="Content\Imagenes pizza\pizzaFlatImage.jpg" />
+    <Content Include="Content\Imagenes pizza\pizzaVector.png" />
     <Content Include="Content\Imagenes pizza\products\en\2x\10CB.png" />
     <Content Include="Content\Imagenes pizza\products\en\2x\5W.png" />
     <Content Include="Content\Imagenes pizza\products\en\2x\BROWN.png" />

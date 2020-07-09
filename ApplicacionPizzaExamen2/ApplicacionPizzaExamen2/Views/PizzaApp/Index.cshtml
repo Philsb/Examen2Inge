@@ -43,18 +43,44 @@
 
         }
 
+        function cerrarNotificacion(idNotificacion) {
+            document.getElementById(idNotificacion).style = "display: none;";
+        }
 
     </script>
 
 
 </head>
 
+@{
+    if (ViewBag.MensajeExito != null)
+    {
+        <div id="notif-exito" class="popup-box alert-success" style="display:block; margin-left:25%; margin-right:25%">
+            @ViewBag.MensajeExito
+            <button type="button" onclick="cerrarNotificacion('notif-exito')" style="background-color: transparent; border:none; color: #3636d8;"><u>Cerrar</u></button>
+        </div>
+    }
+    if (ViewBag.MensajeCancelar != null)
+    {
+        <div id="notif-cancelar" class="popup-box alert-warning" style="display:block; margin-left: 40%; margin-right: 40%;">
+            @ViewBag.MensajeCancelar 
+            <button type="button" onclick="cerrarNotificacion('notif-cancelar')" style="background-color: transparent; border:none; color: #9a6920;"><u>Cerrar</u></button>
+        </div>
+    }
+    if (ViewBag.MensajeError != null)
+    {
+        <div id="notif-error" class="popup-box alert-danger" style="display:block; margin-left: 40%; margin-right: 40%;">
+            @ViewBag.MensajeError
+            <button type="button" onclick="cerrarNotificacion('notif-error')" style="background-color: transparent; border:none; color: #bd2130;"><u>Cerrar</u></button>
+        </div>
+    }
+}
+
+
+
 <div class="pizza-banner shadow">
 
     <div class="container body-content">
-        @*<h1>ASP.NET</h1>
-            <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-            <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
 
     </div>
 
@@ -106,7 +132,7 @@
                 <div class="row" style="padding: 15px;">
                     <div class="col-md-3">
                         <h2 style="text-align:center;">Tu pizza</h2>
-                        <img src="~/Content/Imagenes pizza/toppings/en/2x/W.png" alt="Pizza base" style="width:280px;height:280px;">
+                        <img src="~/Content/Imagenes pizza/pizzaVector.png" alt="Pizza base" style="width:280px;height:280px;">
                         <div class="row" style="justify-content:center; margin-left: 5px; margin-top: 15px; ">
                             asdasdasdasdasd
 

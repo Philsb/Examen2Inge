@@ -5,7 +5,13 @@
     background-image: url('imagenes pizza/bg-configurator-header.jpg');
 }
 
-h2 {
+h2{
+    font-family: 'Fredoka One', cursive;
+}
+h3 {
+    font-family: 'Fredoka One', cursive;
+}
+h4 {
     font-family: 'Fredoka One', cursive;
 }
 
@@ -245,3 +251,15 @@ h2 {
     background-color: white;
     color: #537b3d;
 }
+
+.popup-box {
+    position: absolute;
+    z-index: 9999;
+    padding: 20px;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    display: none;
+}
+
+
