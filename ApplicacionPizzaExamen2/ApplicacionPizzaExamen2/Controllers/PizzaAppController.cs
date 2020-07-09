@@ -38,6 +38,16 @@ namespace ApplicacionPizzaExamen2.Controllers
             return View();
         }
 
+        public ActionResult MostrarCarrito()
+        {
+            if (TempData["Factura"] != null)
+            {
+                ViewBag.Factura = TempData["Factura"];
+            }
+
+            return View();
+        }
+
         [HttpPost]
         public ActionResult SumarACarrito(PizzaOrdenModel model) {
             PizzaFacturaModel factura;
@@ -53,15 +63,6 @@ namespace ApplicacionPizzaExamen2.Controllers
             @TempData["Factura"] = factura;
 
             return RedirectToAction("MostrarCarrito", "PizzaApp");
-        }
-
-        public ActionResult MostrarCarrito()
-        {
-            if (TempData["Factura"] != null) {
-                ViewBag.Factura = TempData["Factura"];
-            }
-
-            return View();
         }
 
         public ActionResult TramitarOrden(string estadoOrden) {

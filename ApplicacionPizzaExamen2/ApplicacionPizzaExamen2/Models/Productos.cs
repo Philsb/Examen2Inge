@@ -15,47 +15,9 @@ namespace ApplicacionPizzaExamen2.Models
         private IList<string> Toppings = new List<string>();
 
         public Productos() {
-            AddProductos();
             AddPrecios();
         }
 
-        private void AddProductos() {
-            //Tamaño
-            Tamaños.Add("Pequeña");
-            Tamaños.Add("Mediana");
-            Tamaños.Add("Grande");
-            //Masa
-            Masas.Add("Masa regular");
-            Masas.Add("Masa fina");
-            Masas.Add("Masa gruesa");
-            //Salsa
-            Salsas.Add("Tomate");
-            Salsas.Add("Pesto");
-            Salsas.Add("Buffalo");
-            Salsas.Add("Crema y ajo");
-            //Queso
-            Quesos.Add("Mozzarella");
-            Quesos.Add("Parmesano");
-            Quesos.Add("Cuatro quesos");
-            Quesos.Add("Sin queso");
-            //toppings
-            Toppings.Add("Jamón");
-            Toppings.Add("Pepperoni");
-            Toppings.Add("Tocino");
-            Toppings.Add("Carne Molida");
-            Toppings.Add("Salami");
-            Toppings.Add("Pollo");
-            Toppings.Add("Chorizo");
-            Toppings.Add("Fajitas");
-            Toppings.Add("Champiñones");
-            Toppings.Add("Aceitunas");
-            Toppings.Add("Piña");
-            Toppings.Add("Cebolla morada");
-            Toppings.Add("Chile dulce");
-            Toppings.Add("Espinaca");
-            Toppings.Add("Jalapeño");
-            Toppings.Add("Culantro");
-        }
 
         private void AddPrecios() {
             //precios de Tamaño
@@ -80,7 +42,7 @@ namespace ApplicacionPizzaExamen2.Models
             Precios.Add("Jamón", 50.00);
             Precios.Add("Pepperoni", 50.00);
             Precios.Add("Tocino", 350.00);
-            Precios.Add("Carne Molida", 50.00);
+            Precios.Add("Carne molida", 50.00);
             Precios.Add("Salami", 350.00);
             Precios.Add("Pollo", 50.00);
             Precios.Add("Chorizo", 400.00);
@@ -96,7 +58,7 @@ namespace ApplicacionPizzaExamen2.Models
         }
 
         public double GetPrecioDeProducto(string producto) {
-            double precio = 0.00;
+            double precio;
             try
             {
                 precio = Precios[producto];
@@ -109,25 +71,6 @@ namespace ApplicacionPizzaExamen2.Models
             return precio;
         }
 
-        public IList<string> GetTamaños() 
-        {
-            return Tamaños.ToList<string>();
-        }
-        public IList<string> GetMasas()
-        {
-            return Masas.ToList<string>();
-        }
-        public IList<string> GetSalsas()
-        {
-            return Salsas.ToList<string>();
-        }
-        public IList<string> GetQuesos()
-        {
-            return Quesos.ToList<string>();
-        }
-        public IList<string> GetToppings()
-        {
-            return Toppings.ToList<string>();
-        }
+
     }
 }
