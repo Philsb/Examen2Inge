@@ -5,6 +5,12 @@
 }
 <head>
     <script>
+        var tipoTamano = "Mediana";
+        var tipoMasa = "Masa regular";
+        var tipoSalsa = "Salsa de Tomate";
+        var tipoQueso = "Mozzarella";
+        var listaToppings = [];
+
         function mostrarFormularioPizza() {
             document.getElementById("modal").style = "display: block;";
             toggleTabFormulario("#baseButton", "base");
@@ -47,6 +53,40 @@
             document.getElementById(idNotificacion).style = "display: none;";
         }
 
+        function actualizarTopping(itemNombre) {
+            if (listaToppings.includes(itemNombre)) {
+                listaToppings.splice(listaToppings.indexOf(itemNombre), 1);
+            }
+            else {
+                listaToppings.push(itemNombre);
+            }
+            actualizarIngredientes();
+        }
+
+        function actualizarBase(tipoItem, itemNombre) {
+            if (tipoItem === "tamano") {
+                tipoTamano = itemNombre;
+            }
+            if (tipoItem === "masa") {
+                tipoMasa = itemNombre;
+            }
+            if (tipoItem === "salsa") {
+                tipoSalsa = itemNombre;
+            }
+            if (tipoItem === "queso") {
+                tipoQueso = itemNombre;
+            }
+            actualizarIngredientes();
+        }
+
+        function actualizarIngredientes() {
+            var toppingsString = "";
+            for (index = 0; index < listaToppings.length; index++) {
+                toppingsString = toppingsString.concat(', ' + listaToppings[index]);
+            }
+
+            document.getElementById('ingredientesPizza').textContent = tipoTamano + ', ' + tipoMasa + ', ' + tipoSalsa + ', ' + tipoQueso + toppingsString;
+        }
     </script>
 
 
@@ -133,13 +173,12 @@
                     <div class="col-md-3">
                         <h2 style="text-align:center;">Tu pizza</h2>
                         <img src="~/Content/Imagenes pizza/pizzaVector.png" alt="Pizza base" style="width:280px;height:280px;">
-                        <div class="row" style="justify-content:center; margin-left: 5px; margin-top: 15px; ">
-                            asdasdasdasdasd
-
+                        <div id="ingredientesPizza" class="row" style="justify-content:center; margin-left: 5px; margin-top: 15px; ">
+                            Mediana, Masa regular, Salsa Tomate, Mozzarella
                         </div>
                         <div class="row tamano-body" style="margin-left: 15px; margin-top: 10px;">
                             <div class="col-md-4" style="padding-left:0px; padding-right:0px;">
-                                <input type="radio" class="select_item" name="tamanoPizza" id="choose-size-small" value="Pequeña" />
+                                <input onclick ="actualizarBase('tamano', 'Pequeña')" type="radio" class="select_item" name="tamanoPizza" id="choose-size-small" value="Pequeña" />
                                 <label for="choose-size-small" style="width: 100%; height: 100%; padding: 5px;">
                                     <span class=" tamano-text row">Pequeña</span>
                                     <span class="tamano-text row">6 slices</span>
@@ -148,7 +187,7 @@
                                 </label>
                             </div>
                             <div class="col-md-4" style="padding-left:0px; padding-right:0px;">
-                                <input type="radio" class="select_item" name="tamanoPizza" id="choose-size-medium" value="Mediana" checked />
+                                <input onclick ="actualizarBase('tamano', 'Mediana')" type="radio" class="select_item" name="tamanoPizza" id="choose-size-medium" value="Mediana" checked />
                                 <label for="choose-size-medium" style="width: 100%; height: 100%; padding: 5px;">
                                     <span class="tamano-text row">Mediana</span>
                                     <span class="tamano-text row">8 slices</span>
@@ -157,7 +196,7 @@
                                 </label>
                             </div>
                             <div class="col-md-4" style="padding-left:0px; padding-right:0px;">
-                                <input type="radio" class="select_item" name="tamanoPizza" id="choose-size-large" value="Grande" />
+                                <input onclick ="actualizarBase('tamano', 'Grande')" type="radio" class="select_item" name="tamanoPizza" id="choose-size-large" value="Grande" />
                                 <label for="choose-size-large" style="width: 100%; height: 100%; padding: 5px;">
                                     <span class="tamano-text row">Grande</span>
                                     <span class="tamano-text row">10 slices</span>
@@ -179,7 +218,7 @@
                             <div id="masa" class="row" style="display:none;">
                                 <div class="col-md-3">
 
-                                    <input type="radio" class="select_item" name="MasaPizza" id="choose-masa-1" value="Masa regular" checked />
+                                    <input onclick ="actualizarBase('masa', 'Masa Regular')" type="radio" class="select_item" name="MasaPizza" id="choose-masa-1" value="Masa regular" checked />
                                     <label class="box-item" for="choose-masa-1">
                                         <span class=" seleccionar-text row">Seleccionar</span>
                                         <span class="item-name row">Masa regular</span>
@@ -190,7 +229,7 @@
 
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="radio" class="select_item" name="MasaPizza" id="choose-masa-2" value="Masa fina" />
+                                    <input onclick ="actualizarBase('masa', 'Masa fina')" type="radio" class="select_item" name="MasaPizza" id="choose-masa-2" value="Masa fina" />
                                     <label class="box-item" for="choose-masa-2">
                                         <span class=" seleccionar-text row">Seleccionar</span>
                                         <span class="item-name row">Masa fina</span>
@@ -199,7 +238,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="radio" class="select_item" name="MasaPizza" id="choose-masa-3" value="Masa gruesa" />
+                                    <input onclick ="actualizarBase('masa', 'Masa gruesa')" type="radio" class="select_item" name="MasaPizza" id="choose-masa-3" value="Masa gruesa" />
                                     <label class="box-item" for="choose-masa-3">
                                         <span class=" seleccionar-text row">Seleccionar</span>
                                         <span class="item-name row">Masa gruesa</span>
@@ -212,7 +251,7 @@
 
                                 <div class="col-md-3">
 
-                                    <input type="radio" class="select_item" name="SalsaPizza" id="choose-salsa-1" value="Tomate" checked />
+                                    <input onclick ="actualizarBase('salsa', 'Salsa de tomate')" type="radio" class="select_item" name="SalsaPizza" id="choose-salsa-1" value="Tomate" checked />
                                     <label class="box-item" for="choose-salsa-1">
                                         <span class=" seleccionar-text row">Seleccionar</span>
                                         <span class="item-name row">Tomate</span>
@@ -222,7 +261,7 @@
 
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="radio" class="select_item" name="SalsaPizza" id="choose-salsa-2" value="Pesto" />
+                                    <input onclick ="actualizarBase('salsa', 'Salsa pesto')" type="radio" class="select_item" name="SalsaPizza" id="choose-salsa-2" value="Pesto" />
                                     <label class="box-item" for="choose-salsa-2">
                                         <span class=" seleccionar-text row">Seleccionar</span>
                                         <span class="item-name row">Pesto</span>
@@ -231,7 +270,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="radio" class="select_item" name="SalsaPizza" id="choose-salsa-3" value="Buffalo" />
+                                    <input onclick ="actualizarBase('salsa', 'Salsa buffalo')" type="radio" class="select_item" name="SalsaPizza" id="choose-salsa-3" value="Buffalo" />
                                     <label class="box-item" for="choose-salsa-3">
                                         <span class=" seleccionar-text row">Seleccionar</span>
                                         <span class="item-name row">Buffalo</span>
@@ -240,7 +279,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="radio" class="select_item" name="SalsaPizza" id="choose-salsa-4" value="Crema y ajo" />
+                                    <input onclick ="actualizarBase('salsa', 'Salsa crema y ajo')" type="radio" class="select_item" name="SalsaPizza" id="choose-salsa-4" value="Crema y ajo" />
                                     <label class="box-item" for="choose-salsa-4">
                                         <span class=" seleccionar-text row">Seleccionar</span>
                                         <span class="item-name row">Crema y ajo</span>
@@ -252,7 +291,7 @@
                             <div id="queso" class="row">
                                 <div class="col-md-3">
 
-                                    <input type="radio" class="select_item" name="QuesoPizza" id="choose-queso-1" value="Mozzarella" checked />
+                                    <input onclick ="actualizarBase('queso', 'Mozzarella')" type="radio" class="select_item" name="QuesoPizza" id="choose-queso-1" value="Mozzarella" checked />
                                     <label class="box-item" for="choose-queso-1">
                                         <span class=" seleccionar-text row">Seleccionar</span>
                                         <span class="item-name row">Mozzarella </span>
@@ -262,7 +301,7 @@
 
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="radio" class="select_item" name="QuesoPizza" id="choose-queso-2" value="Parmesano" />
+                                    <input onclick ="actualizarBase('queso', 'Parmesano')" type="radio" class="select_item" name="QuesoPizza" id="choose-queso-2" value="Parmesano" />
                                     <label class="box-item" for="choose-queso-2">
                                         <span class=" seleccionar-text row">Seleccionar</span>
                                         <span class="item-name row">Parmesano</span>
@@ -271,7 +310,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="radio" class="select_item" name="QuesoPizza" id="choose-queso-3" value="Cuatro quesos" />
+                                    <input onclick ="actualizarBase('queso', 'Cuatro quesos')" type="radio" class="select_item" name="QuesoPizza" id="choose-queso-3" value="Cuatro quesos" />
                                     <label class="box-item" for="choose-queso-3">
                                         <span class=" seleccionar-text row">Seleccionar</span>
                                         <span class="item-name row">Cuatro quesos</span>
@@ -280,7 +319,7 @@
                                     </label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="radio" class="select_item" name="QuesoPizza" id="choose-queso-4" value="Sin queso" />
+                                    <input onclick ="actualizarBase('queso', 'Sin queso')" type="radio" class="select_item" name="QuesoPizza" id="choose-queso-4" value="Sin queso" />
                                     <label class="box-item" for="choose-queso-4">
                                         <span class=" seleccionar-text row">Seleccionar</span>
                                         <span class="item-name row">Sin queso</span>
@@ -301,7 +340,7 @@
                                 <div class="row">
                                     <div class="col-md-3">
 
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-1" value="Jamón" />
+                                        <input onclick ="actualizarTopping('Jamón')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-1" value="Jamón" />
                                         <label class="box-item" for="choose-top-1">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Jamón</span>
@@ -311,7 +350,7 @@
 
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-2" value="Pepperoni" />
+                                        <input onclick ="actualizarTopping('Pepperoni')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-2" value="Pepperoni" />
                                         <label class="box-item" for="choose-top-2">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Pepperoni</span>
@@ -320,7 +359,7 @@
                                         </label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-3" value="Tocino" />
+                                        <input onclick ="actualizarTopping('Tocino')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-3" value="Tocino" />
                                         <label class="box-item" for="choose-top-3">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Tocino</span>
@@ -329,7 +368,7 @@
                                         </label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-4" value="Carne Molida" />
+                                        <input onclick ="actualizarTopping('Carne Molida')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-4" value="Carne Molida" />
                                         <label class="box-item" for="choose-top-4">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Carne Molida</span>
@@ -340,7 +379,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-5" value="Salami" />
+                                        <input onclick ="actualizarTopping('Salami')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-5" value="Salami" />
                                         <label class="box-item" for="choose-top-5">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Salami</span>
@@ -349,7 +388,7 @@
                                         </label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-6" value="Pollo" />
+                                        <input onclick ="actualizarTopping('Pollo')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-6" value="Pollo" />
                                         <label class="box-item" for="choose-top-6">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Pollo</span>
@@ -358,7 +397,7 @@
                                         </label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-7" value="Chorizo" />
+                                        <input onclick ="actualizarTopping('Chorizo')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-7" value="Chorizo" />
                                         <label class="box-item" for="choose-top-7">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Chorizo</span>
@@ -367,7 +406,7 @@
                                         </label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-8" value="Fajitas" />
+                                        <input onclick ="actualizarTopping('Fajitas')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-8" value="Fajitas" />
                                         <label class="box-item" for="choose-top-8">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Fajitas</span>
@@ -378,7 +417,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-9" value="Champiñones" />
+                                        <input onclick ="actualizarTopping('Champiñones')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-9" value="Champiñones" />
                                         <label class="box-item" for="choose-top-9">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Champiñones</span>
@@ -387,7 +426,7 @@
                                         </label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-10" value="Aceitunas" />
+                                        <input onclick ="actualizarTopping('Aceitunas')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-10" value="Aceitunas" />
                                         <label class="box-item" for="choose-top-10">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Aceitunas</span>
@@ -396,7 +435,7 @@
                                         </label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-11" value="Piña" />
+                                        <input onclick ="actualizarTopping('Piña')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-11" value="Piña" />
                                         <label class="box-item" for="choose-top-11">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Piña</span>
@@ -405,7 +444,7 @@
                                         </label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-12" value="Cebolla morada" />
+                                        <input onclick ="actualizarTopping('Cebolla morada')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-12" value="Cebolla morada" />
 
                                         <label class="box-item" for="choose-top-12">
                                             <span class=" seleccionar-text row">Seleccionar</span>
@@ -417,7 +456,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-13" value="Chile dulce" />
+                                        <input onclick ="actualizarTopping('Chile dulce')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-13" value="Chile dulce" />
                                         <label class="box-item" for="choose-top-13">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Chile dulce</span>
@@ -426,7 +465,7 @@
                                         </label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-14" value="Espinaca" />
+                                        <input onclick ="actualizarTopping('Espinaca')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-14" value="Espinaca" />
                                         <label class="box-item" for="choose-top-14">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Espinaca</span>
@@ -435,7 +474,7 @@
                                         </label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-15" value="Jalapeño" />
+                                        <input onclick ="actualizarTopping('Jalapeño')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-15" value="Jalapeño" />
                                         <label class="box-item" for="choose-top-15">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Jalapeño</span>
@@ -444,7 +483,7 @@
                                         </label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="checkbox" class="select_item" name="ListaToppings" id="choose-top-16" value="Culantro" />
+                                        <input onclick ="actualizarTopping('Culantro')" type="checkbox" class="select_item" name="ListaToppings" id="choose-top-16" value="Culantro" />
                                         <label class="box-item" for="choose-top-16">
                                             <span class=" seleccionar-text row">Seleccionar</span>
                                             <span class="item-name row">Culantro</span>
